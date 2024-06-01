@@ -81,6 +81,7 @@
 % \swpu@def@prm{eauthor}{English Name}
 \swpu@def@prm{cmajor}{学科专业中文名}
 % \swpu@def@prm{emajor}{major}
+\swpu@def@prm{cdomain}{专业学位领域}
 \swpu@def@prm{research}{研究方向}
 \swpu@def@prm{id}{学号}
 % 论文中英文题目。
@@ -88,6 +89,7 @@
 % \swpu@def@prm{etitle}{}
 % 导师中英文姓名。
 \swpu@def@prm{csupervisor}{}
+\swpu@def@prm{cwsupervisor}{}
 % \swpu@def@prm{esupervisor}{}
 % 论文完成日期（中英文）。
 \swpu@def@prm{cdate}{}
@@ -235,14 +237,19 @@
   \includegraphics[height=1.22cm]{fig/swpu.jpg} % 学校图片
   \vspace{0.83cm}\par
   \includegraphics[height=1.75cm]{fig/\swpu@degree .jpg} % 学位论文图片 
+  % 如果是非全日制需要增加（非全日制）
+  （非全日制）
   \vspace{2cm}\par
   % 论文信息。不用表格，因为表格不好调单元高度，也不好设置垂直对齐方式。
   % \hspace{2em}
   \swpu@zhcoverformat{t}{2cm}{论文题目}%
   \swpu@zhinfoformat{t}{2cm}{\swpu@ctitle}
 
-  \swpu@zhcoverformat{b}{1cm}{学科专业}%
+  \swpu@zhcoverformat{b}{1cm}{学位类别}%
   \swpu@zhinfoformat{b}{1cm}{\swpu@cmajor}
+
+  \swpu@zhcoverformat{b}{1cm}{专业学位领域}%
+  \swpu@zhinfoformat{b}{1cm}{\swpu@cdomain}
 
   \swpu@zhcoverformat{b}{1cm}{研究方向}%
   \swpu@zhinfoformat{b}{1cm}{\swpu@research}
@@ -254,10 +261,12 @@
   \swpu@zhcoverformat{b}{1cm}{学号}%
   \swpu@zhinfoformat{b}{1cm}{\addfontfeatures{LetterSpace=12}\swpu@id}
 
-  \swpu@zhcoverformat{b}{1cm}{导师姓名}%
+  \swpu@zhcoverformat{b}{1cm}{校内导师姓名}%
   \swpu@zhinfoformat{b}{1cm}{\swpu@csupervisor}
 
-  \vspace{3.7cm}\par
+  \swpu@zhcoverformat{b}{1cm}{校外导师姓名}%
+  \swpu@zhinfoformat{b}{1cm}{\swpu@cwsupervisor}
+   \vspace{2.7cm}\par
   % 日期：黑体(英文Arial)，小三 (15 bp)，字体加宽 3 bp，换算为倍数 3 / 15 = 0.2 (要微调)
   {\zihao{-3}\ziju{0.3}\sffamily\selectfont 论文完成时间：\swpu@cdate}
 }
@@ -329,16 +338,16 @@
 
 % 定义 \cs{makecover}，调用 \cs{swpu@makezhtitle}, \cs{swpu@makeentitle}
 % 分别生成中、英文封面。
-% \def\makecover{%
-%   \pagestyle{empty}
-%   \begin{titlepage}
-%   \centering
-%   \swpu@makezhtitle
-%   \clearpage
-% %   \swpu@makeentitle
-%   \end{titlepage}
-%   \swpu@makecopyright
-% }
+\def\makecover{%
+  \pagestyle{empty}
+  \begin{titlepage}
+  \centering
+  \swpu@makezhtitle
+  \clearpage
+%   \swpu@makeentitle
+  \end{titlepage}
+  \swpu@makecopyright
+}
 
 \def\makecopyright{%
   \pagestyle{empty}
