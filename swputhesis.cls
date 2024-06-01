@@ -64,6 +64,7 @@
 \RequirePackage{enumitem} % 设置列表格式
 \RequirePackage{etoolbox} % dev tool
 \RequirePackage[style=gb7714-2015]{biblatex} % 参考文献工具（使用国标）
+\RequirePackage{pdfpages}
 
 % ^^A ==========================================================================
 % 定义论文基本信息变量
