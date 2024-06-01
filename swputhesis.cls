@@ -147,6 +147,7 @@
   footskip   = 0.75cm
 }
 
+
 % ^^A ==========================================================================
 % 利用 \pkg{fancyhdr} 设置正文前和正文中页眉页脚内容。
 %
@@ -611,6 +612,8 @@
   \crefrangeformat{table}{表~#3#1#4 至 #5#2#6}
   \crefmultiformat{table}{表~#2#1#3}{ 和~#2#1#3}{，#2#1#3}{ 和~#2#1#3}
 }
+
+
 \endinput
 %%
 %% End of file `swputhesis.cls'.
